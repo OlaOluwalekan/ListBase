@@ -1,0 +1,56 @@
+.main {
+  background-color: var(--brown);
+}
+
+.main > div {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* LOGO STYLES */
+.logo {
+  color: var(--gold);
+  font-family: var(--font-family7);
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.logo > span {
+  font-family: var(--font-family8);
+  color: var(--yellow);
+}
+
+/* NAV LINK STYLES */
+.main > div > nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--yellow);
+  padding: 5px 10px;
+}
+
+.active {
+  border-bottom: 1px solid var(--gold);
+  color: var(--gold);
+}
+
+/* DESKTOP SCREEN */
+@media screen and (min-width: 700px) {
+  .main > div {
+    width: 80%;
+    max-width: 1100px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

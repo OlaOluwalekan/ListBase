@@ -1,0 +1,14 @@
+.main > div {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main > div > form {
+  width: 100%;
+  max-width: 400px;
+}

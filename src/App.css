@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&family=Hachi+Maru+Pop&family=Herr+Von+Muellerhoff&family=Mochiy+Pop+One&family=Poppins:wght@400;700&family=Qwitcher+Grypen:wght@400;700&family=Sedgwick+Ave+Display&family=Tilt+Prism&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family5);
+}
+
+:root {
+  /* FONTS */
+  --font-family1: 'Cormorant', serif;
+  --font-family2: 'Hachi Maru Pop', cursive;
+  --font-family3: 'Herr Von Muellerhoff', cursive;
+  --font-family4: 'Mochiy Pop One', sans-serif;
+  --font-family5: 'Poppins', sans-serif;
+  --font-family6: 'Qwitcher Grypen', cursive;
+  --font-family7: 'Sedgwick Ave Display', cursive;
+  --font-family8: 'Tilt Prism', cursive;
+
+  /* COLOUR */
+  --orange: #e27f2d;
+  --brown: #6f280f;
+  --yellow: #e7eb2b;
+  --black: #010912;
+  --gold: #e0b31d;
+  --lightYellow: #d2f986;
+  --white: #fff;
+}
