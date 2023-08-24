@@ -20,5 +20,8 @@ const Button = styled.button.attrs((props) => ({
   text-decoration: none;
   text-align: center;
   margin: 10px 0;
+  display: flex;
+  place-items: center;
+  gap: 5px;
 `
 export default Button

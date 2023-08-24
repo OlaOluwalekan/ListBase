@@ -4,8 +4,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from 'firebase/auth'
+import { collection, getFirestore } from 'firebase/firestore'
 import { toast } from 'react-toastify'
 import {
   addUserToLocalStorage,
@@ -13,6 +13,7 @@ import {
   removeUserFromLocalStorage,
 } from '../utils/localStorage'
 
+// FIREBASE CONFIGURATION
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
@@ -22,12 +23,15 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
 }
 
+// FIREBASE APP INITIALIZATION
 initializeApp(firebaseConfig)
+// AUTH INITIALIZATION
 const auth = getAuth()
 
 const initialState = {
   user: getUserFromLocalStorage(),
   isLoading: false,
+  writeDialogIsOpen: false,
 }
 
 // SIGNUP USER
@@ -74,6 +78,10 @@ const userSlice = createSlice({
       state.user = null
       removeUserFromLocalStorage()
     },
+    toggleWriteDialog: (state, { payload }) => {
+      // console.log(payload)
+      state.writeDialogIsOpen = payload
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -112,6 +120,6 @@ const userSlice = createSlice({
   },
 })
 
-export const { logOut } = userSlice.actions
+export const { logOut, toggleWriteDialog } = userSlice.actions
 
 export default userSlice.reducer

@@ -1,0 +1,39 @@
+/* FILTERS STYLE */
+.filters {
+  margin-top: 20px;
+}
+
+.filters > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+  column-gap: 20px;
+}
+
+.filters > div:first-of-type > article {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters > div:first-of-type > article > span {
+  font-size: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--brown);
+}
+
+/* DESKTOP SCREEN */
+@media screen and (min-width: 700px) {
+  .filters > div:first-of-type {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .filters > div:first-of-type > section {
+    width: 60%;
+  }
+}

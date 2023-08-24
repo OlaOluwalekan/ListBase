@@ -1,0 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main > section {
+  background-color: var(--white);
+  box-shadow: 1px 1px 1px var(--gold);
+  padding: 10px;
+}

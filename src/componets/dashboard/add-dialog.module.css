@@ -1,0 +1,108 @@
+.add-dialog {
+  width: 80%;
+  max-width: 500px;
+  height: fit-content;
+  background-color: var(--white);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 20px 10px;
+}
+
+.add-dialog > span {
+  width: 30px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--brown);
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.add-dialog > h2 {
+  color: var(--brown);
+  text-align: center;
+}
+
+.add-dialog > textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* COLOR SELECTION */
+.add-dialog > p {
+  color: var(--orange);
+  font-weight: 600;
+}
+.add-dialog > section {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+/* FONT SELECTION */
+.add-dialog > p:nth-of-type(2) {
+  margin-top: 15px;
+}
+
+.add-dialog > div {
+  position: relative;
+  height: 20px;
+  overflow-y: hidden;
+  margin-bottom: 20px;
+}
+
+.add-dialog > div > span {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  color: var(--orange);
+  z-index: 20;
+  cursor: pointer;
+  transition: all 300ms ease;
+  /* background-color: red; */
+  display: block;
+  width: fit-content;
+  height: 20px;
+}
+
+.add-dialog > div > span.open {
+  transform: rotate(180deg);
+}
+
+.add-dialog > div > section {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  /* height: 20px; */
+  background-color: var(--lightYellow);
+  transition: all 300ms ease;
+  overflow-y: hidden;
+}
+
+.add-dialog > div > section::-webkit-scrollbar {
+  width: 3px;
+}
+
+.add-dialog > div > section::-webkit-scrollbar-thumb {
+  background-color: var(--orange);
+}
+
+.add-dialog > div > section.open {
+  height: 100px;
+  overflow-y: scroll;
+}
+
+.add-dialog > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

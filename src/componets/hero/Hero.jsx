@@ -22,7 +22,7 @@ const Hero = () => {
           <Button
             solid=''
             bgc='var(--brown)'
-            color='var(--lightYellow)'
+            // color='var(--lightYellow)'
             width='80%'
             as='a'
             href='/auth/login'

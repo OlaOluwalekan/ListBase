@@ -34,3 +34,13 @@
   align-items: center;
   gap: 30px;
 }
+
+@media screen and (min-width: 700px) {
+  .main > div {
+    width: 70%;
+    max-width: 800px;
+  }
+  .main > div > section {
+    flex-direction: row;
+  }
+}

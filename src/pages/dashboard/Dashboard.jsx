@@ -1,14 +1,23 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import styles from '../../css/dashboard.module.css'
+import TodoList from '../../componets/dashboard/TodoList'
+import Filters from '../../componets/dashboard/Filters'
+import AddDialog from '../../componets/dashboard/AddDialog'
 
 const Dashboard = () => {
-  const { user } = useSelector((store) => store.user)
-  console.log(user)
+  const { user, writeDialogIsOpen } = useSelector((store) => store.user)
+  const dispatch = useDispatch()
 
   return (
-    <div>
+    <div className={styles.main}>
       <div>
-        <section>{user.email}</section>
-        {user.uid}
+        <section>
+          <h2>Your Dashboard</h2>
+          <p>{user.email}</p>
+          <Filters />
+          <TodoList />
+          {writeDialogIsOpen && <AddDialog />}
+        </section>
       </div>
     </div>
   )
