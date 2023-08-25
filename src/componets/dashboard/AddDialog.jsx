@@ -24,6 +24,7 @@ const AddDialog = () => {
   const fontContainerRef = useRef(null)
   const dispatch = useDispatch()
   const { todo, isLoading } = useSelector((store) => store.todo)
+  const { user } = useSelector((store) => store.user)
 
   const toggleFontSelect = () => {
     setFontSelectionIsOpen(!fontSelectionIsOpen)
@@ -38,16 +39,12 @@ const AddDialog = () => {
     }
   }, [fontSelectionIsOpen])
 
-  useEffect(() => {
-    if (todo) {
-      setTitle('')
-      setDescription('')
-      setTheme('#f7f0f0')
-      setFontFamily(`'Poppins', sans-serif`)
-      dispatch(toggleWriteDialog(false))
-      dispatch(getTodos())
-    }
-  }, [todo])
+  // useEffect(() => {
+  //   console.log('i am running use effect')
+  //   if (todo) {
+
+  //   }
+  // }, [todo])
 
   const selectFont = (font) => {
     setFontFamily(font.value)
@@ -60,8 +57,17 @@ const AddDialog = () => {
     // console.log({ title, description, theme, fontFamily })
     if (!title) {
       toast.error('Title is required')
+      return
     }
     dispatch(createTodo({ title, description, theme, fontFamily }))
+    setTitle('')
+    setDescription('')
+    setTheme('#f7f0f0')
+    setFontFamily(`'Poppins', sans-serif`)
+    dispatch(toggleWriteDialog(false))
+    dispatch(
+      getTodos({ user: user.uid, orderBy: 'createdAt', orderType: 'asc' })
+    )
   }
 
   return (

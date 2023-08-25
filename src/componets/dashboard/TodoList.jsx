@@ -12,9 +12,12 @@ const collectionRef = collection(db, 'to-dos')
 const TodoList = () => {
   const dispatch = useDispatch()
   const { toDos, isLoading } = useSelector((store) => store.todo)
+  const { user } = useSelector((store) => store.user)
 
   useEffect(() => {
-    dispatch(getTodos())
+    dispatch(
+      getTodos({ user: user.uid, orderBy: 'createdAt', orderType: 'asc' })
+    )
   }, [])
 
   if (isLoading) {

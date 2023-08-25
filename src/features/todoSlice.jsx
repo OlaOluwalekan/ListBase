@@ -7,7 +7,10 @@ import {
   getDocs,
   getFirestore,
   onSnapshot,
+  orderBy,
+  query,
   serverTimestamp,
+  where,
 } from 'firebase/firestore'
 import { toast } from 'react-toastify'
 
@@ -54,8 +57,16 @@ export const createTodo = createAsyncThunk(
 export const getTodos = createAsyncThunk(
   'todo/getTodos',
   async (payload, thunkAPI) => {
+    // console.log(payload)
+    // console.log(`'createdBy', '==', '4FNCQ0H2KgXh5D7OGcxHLwEGWyW2'`)
     try {
-      let resp = await getDocs(collectionRef)
+      let resp = await getDocs(
+        query(
+          collectionRef,
+          where('createdBy', '==', payload.user),
+          orderBy(payload.orderBy, payload.orderType)
+        )
+      )
       const todos = []
       resp.docs.forEach((doc) => {
         todos.push({ ...doc.data(), id: doc.id })

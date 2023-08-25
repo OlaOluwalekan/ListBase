@@ -15,13 +15,10 @@ const Filters = () => {
     textRef.current.children[1].focus()
     textRef.current.style.background = 'none'
     textRef.current.style.border = '2px solid var(--orange)'
-    // console.log(textRef.current.children[1])
   }
 
   window.onclick = () => {
-    // console.log(document.activeElement)
-    if (document.activeElement !== textRef.current.children[1]) {
-      // console.log(textRef.current.children[1])
+    if (document.activeElement !== textRef.current?.children[1]) {
       textRef.current.style.background = 'var(--lightYellow)'
       textRef.current.style.border = 'none'
     }
@@ -42,7 +39,10 @@ const Filters = () => {
             solid='true'
             bgc='var(--brown)'
             color='var(--yellow)'
-            onClick={() => dispatch(toggleWriteDialog(true))}
+            onClick={(e) => {
+              dispatch(toggleWriteDialog(true))
+              e.stopPropagation()
+            }}
           >
             <FaPlus />
             Add Todo
