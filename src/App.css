@@ -7,6 +7,16 @@
   font-family: var(--font-family5);
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+  background: var(--yellow);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 10px;
+}
+
 :root {
   /* FONTS */
   --font-family1: 'Cormorant', serif;

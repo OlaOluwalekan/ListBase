@@ -4,7 +4,12 @@ const Todo = ({ title, theme, fontFamily, createdAt }) => {
   // console.log(createdAt)
   const createdDate = moment(createdAt?.seconds).format('MMMM DD, YYYY')
   return (
-    <section style={{ borderLeft: `20px solid ${theme}` }}>
+    <section
+      style={{
+        border: `2px solid ${theme}`,
+        borderLeft: `20px solid ${theme}`,
+      }}
+    >
       <h2 style={{ fontFamily: fontFamily }}>{title}</h2>
       <div>
         <span>{createdDate}</span>

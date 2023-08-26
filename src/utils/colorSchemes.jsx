@@ -1,3 +1,10 @@
+import {
+  LiaSortNumericDownSolid,
+  LiaSortNumericUpSolid,
+  LiaThListSolid,
+} from 'react-icons/lia'
+import { BsFillGridFill, BsSortAlphaDown, BsSortAlphaUp } from 'react-icons/bs'
+
 export const colorScheme = [
   '#f7f0f0',
   '#01EB55',
@@ -53,5 +60,45 @@ export const fonts = [
     id: 8,
     name: 'Tilt Prism',
     value: `'Tilt Prism', cursive`,
+  },
+]
+
+export const listType = [
+  {
+    id: 1,
+    value: 'list',
+    icon: <LiaThListSolid />,
+  },
+  {
+    id: 2,
+    value: 'grid',
+    icon: <BsFillGridFill />,
+  },
+]
+
+export const sortType = [
+  {
+    id: 'sort1',
+    field: 'title',
+    value: 'asc',
+    icon: <BsSortAlphaDown />,
+  },
+  {
+    id: 'sort2',
+    field: 'title',
+    value: 'desc',
+    icon: <BsSortAlphaUp />,
+  },
+  {
+    id: 'sort3',
+    field: 'createdAt',
+    value: 'asc',
+    icon: <LiaSortNumericUpSolid />,
+  },
+  {
+    id: 'sort4',
+    field: 'createdAt',
+    value: 'desc',
+    icon: <LiaSortNumericDownSolid />,
   },
 ]

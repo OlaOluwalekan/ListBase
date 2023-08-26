@@ -32,6 +32,11 @@ const initialState = {
   user: getUserFromLocalStorage(),
   isLoading: false,
   writeDialogIsOpen: false,
+  listType: 'list',
+  sortType: {
+    field: 'title',
+    order: 'asc',
+  },
 }
 
 // SIGNUP USER
@@ -82,6 +87,13 @@ const userSlice = createSlice({
       // console.log(payload)
       state.writeDialogIsOpen = payload
     },
+    toggleListType: (state, { payload }) => {
+      state.listType = payload
+    },
+    toggleSortType: (state, { payload }) => {
+      state.sortType.field = payload.field
+      state.sortType.order = payload.order
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -120,6 +132,7 @@ const userSlice = createSlice({
   },
 })
 
-export const { logOut, toggleWriteDialog } = userSlice.actions
+export const { logOut, toggleWriteDialog, toggleListType, toggleSortType } =
+  userSlice.actions
 
 export default userSlice.reducer

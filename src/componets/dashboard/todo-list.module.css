@@ -4,8 +4,27 @@
   gap: 20px;
 }
 
+.main.grid {
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .main > section {
   background-color: var(--white);
-  box-shadow: 1px 1px 1px var(--gold);
+  box-shadow: 1px 1px 3px var(--gold);
   padding: 10px;
+}
+
+.main.grid > section {
+  min-width: 150px;
+  width: 30vw;
+  max-width: 200px;
+  height: 150px;
+}
+
+.main.grid > section > h2 {
+  height: 60%;
+  overflow-y: hidden;
 }

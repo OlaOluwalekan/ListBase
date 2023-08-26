@@ -1,15 +1,37 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import TextBox, { TextWrapper } from '../text/TextBox'
 import { FaPlus, FaSearch } from 'react-icons/fa'
 import { TbReload } from 'react-icons/tb'
 import Button from '../buttons/Button'
 import styles from './dashboard-items.module.css'
-import { useDispatch } from 'react-redux'
-import { toggleWriteDialog } from '../../features/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  toggleListType,
+  toggleSortType,
+  toggleWriteDialog,
+} from '../../features/userSlice'
+import { listType, sortType } from '../../utils/colorSchemes'
+import OptionInput from '../text/OptionInput'
+import { getTodos } from '../../features/todoSlice'
 
 const Filters = () => {
   const textRef = useRef(null)
   const dispatch = useDispatch()
+  const {
+    user,
+    listType: listStyle,
+    sortType: sortStyle,
+  } = useSelector((store) => store.user)
+
+  useEffect(() => {
+    dispatch(
+      getTodos({
+        user: user.uid,
+        orderBy: sortStyle.field,
+        orderType: sortStyle.order,
+      })
+    )
+  }, [sortStyle])
 
   const focusSearch = () => {
     textRef.current.children[1].focus()
@@ -52,6 +74,41 @@ const Filters = () => {
           </span>
         </article>
       </div>
+      <section>
+        <article>
+          {listType.map((type) => {
+            return (
+              <OptionInput
+                key={type.id}
+                {...type}
+                name='list-type'
+                selected={listStyle === type.value}
+                onChange={() => dispatch(toggleListType(type.value))}
+              />
+            )
+          })}
+        </article>
+        <div>
+          {sortType.map((type) => {
+            return (
+              <OptionInput
+                key={type.id}
+                {...type}
+                name='sort-type'
+                selected={
+                  sortStyle.field === type.field &&
+                  sortStyle.order === type.value
+                }
+                onChange={() => {
+                  dispatch(
+                    toggleSortType({ field: type.field, order: type.value })
+                  )
+                }}
+              />
+            )
+          })}
+        </div>
+      </section>
     </div>
   )
 }

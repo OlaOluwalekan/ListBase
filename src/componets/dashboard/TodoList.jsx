@@ -12,11 +12,17 @@ const collectionRef = collection(db, 'to-dos')
 const TodoList = () => {
   const dispatch = useDispatch()
   const { toDos, isLoading } = useSelector((store) => store.todo)
-  const { user } = useSelector((store) => store.user)
+  const { user, listType, sortType } = useSelector((store) => store.user)
+
+  console.log(listType)
 
   useEffect(() => {
     dispatch(
-      getTodos({ user: user.uid, orderBy: 'createdAt', orderType: 'asc' })
+      getTodos({
+        user: user.uid,
+        orderBy: sortType.field,
+        orderType: sortType.order,
+      })
     )
   }, [])
 
@@ -25,7 +31,7 @@ const TodoList = () => {
   }
 
   return (
-    <div className={styles.main}>
+    <div className={`${styles.main} ${styles[listType]}`}>
       {toDos.map((todo) => {
         return <Todo key={todo.id} {...todo} />
       })}

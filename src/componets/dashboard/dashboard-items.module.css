@@ -1,8 +1,9 @@
 /* FILTERS STYLE */
 .filters {
-  margin-top: 20px;
+  margin: 30px 0;
 }
 
+/* SEARCH, ADD AND RELOAD STYLES */
 .filters > div:first-of-type {
   display: flex;
   flex-direction: column;
@@ -26,8 +27,26 @@
   color: var(--brown);
 }
 
+/* LIST TYPE AND ORDER */
+.filters > section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.filters > section > article {
+  display: flex;
+  gap: 10px;
+}
+
+.filters > section > div {
+  display: flex;
+  gap: 10px;
+}
+
 /* DESKTOP SCREEN */
 @media screen and (min-width: 700px) {
+  /* SEARCH, ADD AND RELOAD STYLES */
   .filters > div:first-of-type {
     flex-direction: row;
     align-items: center;
